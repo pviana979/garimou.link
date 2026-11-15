@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garimou: entre no grupo de ofertas</title>
+<meta name="description" content="Entre no grupo gratuito do Garimou e receba achadinhos e ofertas garimpadas todos os dias.">
+<script>document.documentElement.className+=" js"</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --river:#0E3B35; --river-deep:#092823; --gold:#F5B82E; --gold-deep:#C48A12;
+  --cream:#FFF6DC; --wa:#25D366; --wa-ink:#06301A; --coral:#E4572E;
+  --sec-bg:#FFF6DC; --sec-ink:#1B2B28; --sec-soft:#4B5E59; --line:#E6D9AE;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --sec-bg:#0A2B27; --sec-ink:#F3EBD0; --sec-soft:#B9C7BF; --line:#1E4A43;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{--sec-bg:#0A2B27; --sec-ink:#F3EBD0; --sec-soft:#B9C7BF; --line:#1E4A43; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--river-deep);color:var(--cream);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+
+/* topo + hero */
+.hero{background:radial-gradient(120% 80% at 50% 0%,#14544B 0%,var(--river) 45%,var(--river-deep) 100%);position:relative;overflow:hidden;padding-bottom:64px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{font-family:"Bricolage Grotesque",Georgia,serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;text-decoration:none;color:var(--gold)}
+.pill{font-size:.85rem;font-weight:500;background:rgba(255,246,220,.1);border:1px solid rgba(255,246,220,.22);padding:6px 12px;border-radius:999px}
+h1{font-family:"Bricolage Grotesque",Georgia,serif;font-weight:800;font-size:clamp(2.4rem,9vw,4.2rem);line-height:1.02;letter-spacing:-.03em;margin:34px 0 18px;max-width:14ch;text-wrap:balance}
+.lead{font-size:1.15rem;max-width:36ch;color:#EADFBC;margin:0 0 30px}
+.nug{position:absolute;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+.n1{width:92px;right:6%;top:130px;transform:rotate(14deg)}
+.n2{width:56px;right:24%;top:300px;transform:rotate(-20deg);opacity:.9}
+.n3{width:70px;right:-14px;top:380px;transform:rotate(32deg)}
+@media (max-width:560px){.n1{width:64px;top:96px}.n2{display:none}.n3{width:50px;top:250px;right:-10px}}
+
+/* botão principal */
+.join{display:inline-flex;align-items:center;gap:12px;background:var(--wa);color:var(--wa-ink);font-weight:700;font-size:1.2rem;text-decoration:none;padding:18px 28px;border-radius:16px;box-shadow:0 8px 0 #148A43,0 18px 30px rgba(0,0,0,.35);transition:transform .15s ease,box-shadow .15s ease}
+.join svg{width:28px;height:28px;flex:none}
+.join:hover{transform:translateY(2px);box-shadow:0 6px 0 #148A43,0 14px 24px rgba(0,0,0,.35)}
+.join:active{transform:translateY(8px);box-shadow:0 0 0 #148A43,0 6px 12px rgba(0,0,0,.35)}
+.join:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.pulse{animation:pulse 2.4s ease-in-out 3}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.fine{display:block;margin-top:18px;font-size:.95rem;color:#CFC8A8}
+
+/* benefícios */
+.sec{background:var(--sec-bg);color:var(--sec-ink);padding:56px 0 48px}
+.sec h2{font-family:"Bricolage Grotesque",Georgia,serif;font-weight:800;font-size:clamp(1.6rem,5vw,2.2rem);letter-spacing:-.02em;margin:0 0 28px;line-height:1.1}
+.perks{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.perks li{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--line)}
+.perks li:last-child{border-bottom:1px solid var(--line)}
+.ico{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--gold);font-size:1.5rem}
+.perks li:nth-child(2) .ico{background:var(--coral)}
+.perks li:nth-child(3) .ico{background:var(--wa)}
+.perks b{display:block;font-size:1.1rem;margin-bottom:2px}
+.perks span{color:var(--sec-soft)}
+.cta2{margin-top:40px;text-align:center}
+.cta2 p{font-family:"Bricolage Grotesque",Georgia,serif;font-weight:800;font-size:1.5rem;margin:0 0 20px;letter-spacing:-.01em}
+
+footer{background:var(--river-deep);color:#B9C7BF;padding:28px 0 110px;font-size:.88rem}
+footer p{margin:0 0 6px}
+
+/* barra fixa no celular */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(9,40,35,.94);backdrop-filter:blur(8px);border-top:1px solid rgba(255,246,220,.14);display:none}
+.bar .join{width:100%;justify-content:center;font-size:1.1rem;padding:15px 20px;box-shadow:0 5px 0 #148A43}
+@media (max-width:700px){.bar{display:block}}
+@media (min-width:701px){footer{padding-bottom:40px}}
+
+/* efeitos */
+body{overflow-x:hidden}
+.wrap{position:relative;z-index:2}
+#coins{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero::before{content:"";position:absolute;left:50%;top:-140px;width:640px;height:640px;translate:-50% 0;background:radial-gradient(circle,rgba(245,184,46,.30),rgba(245,184,46,0) 65%);animation:glow 6s ease-in-out infinite;pointer-events:none}
+@keyframes glow{0%,100%{opacity:.55;scale:1}50%{opacity:1;scale:1.12}}
+.nug{z-index:1;animation:float 5s ease-in-out infinite}
+.n2{animation-duration:6.5s;animation-delay:-2s}
+.n3{animation-duration:5.5s;animation-delay:-1s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -16px}}
+.join{position:relative;overflow:hidden}
+.join::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.ticker{background:var(--gold);color:#3A2800;overflow:hidden;border-block:2px solid var(--gold-deep);transform:rotate(-1.4deg);margin:-26px -12px 0;position:relative;z-index:3;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.track{display:flex;width:max-content;animation:slide 30s linear infinite}
+.track span{padding:12px 20px;font-weight:700;font-size:1.05rem;white-space:nowrap}
+@keyframes slide{to{transform:translateX(-50%)}}
+.sec{padding-top:82px}
+.js .perks li{opacity:0;translate:0 26px;transition:opacity .6s ease,translate .6s ease}
+.js .perks li.in{opacity:1;translate:0 0}
+.perks li:hover .ico{animation:wig .5s ease}
+@keyframes wig{25%{rotate:-12deg}75%{rotate:12deg}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .perks li{opacity:1;translate:none}.track{width:auto;flex-wrap:wrap;justify-content:center}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F5B82E"/><stop offset="1" stop-color="#B9780B"/>
+    </linearGradient>
+    <symbol id="nugget" viewBox="0 0 100 80">
+      <polygon points="8,46 22,16 52,6 84,18 96,48 76,72 38,76" fill="url(#g)"/>
+      <polygon points="22,16 52,6 46,34" fill="#FFF0B8" opacity=".75"/>
+      <polygon points="46,34 84,18 96,48 62,50" fill="#FFD25E" opacity=".6"/>
+      <polygon points="8,46 46,34 38,76" fill="#C48A12" opacity=".55"/>
+    </symbol>
+    <symbol id="wa" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 1.9 6.6L3 29l7.2-2.1a12.9 12.9 0 0 0 5.8 1.4c7 0 12.7-5.6 12.7-12.5S23 3 16 3zm0 22.7c-1.9 0-3.7-.5-5.2-1.5l-.4-.2-4.3 1.2 1.2-4.1-.3-.4a10 10 0 0 1-1.6-5.4C5.4 10 10.1 5.5 16 5.5S26.6 10 26.6 15.5 21.9 25.7 16 25.7zm5.8-7.5c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3 2 3.2 5 4.4c1.9.8 2.6.8 3.5.7.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <canvas id="coins" aria-hidden="true"></canvas>
+  <svg class="nug n1" viewBox="0 0 100 80" aria-hidden="true"><use href="#nugget"/></svg>
+  <svg class="nug n2" viewBox="0 0 100 80" aria-hidden="true"><use href="#nugget"/></svg>
+  <svg class="nug n3" viewBox="0 0 100 80" aria-hidden="true"><use href="#nugget"/></svg>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#">Garimou</a>
+      <span class="pill">Grupo gratuito</span>
+    </div>
+    <h1>As melhores ofertas, garimpadas para você.</h1>
+    <p class="lead">Entre no grupo e receba achadinhos com desconto antes que acabem.</p>
+    <a class="join pulse" href="#" data-join>
+      <svg aria-hidden="true"><use href="#wa"/></svg>
+      Entrar no grupo agora
+    </a>
+    <span class="fine">É grátis e você sai quando quiser.</span>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="track"><span>Eletrônicos ✦</span><span>Casa e utilidades ✦</span><span>Moda e acessórios ✦</span><span>Games e informática ✦</span><span>Eletrônicos ✦</span><span>Casa e utilidades ✦</span><span>Moda e acessórios ✦</span><span>Games e informática ✦</span><span>Eletrônicos ✦</span><span>Casa e utilidades ✦</span><span>Moda e acessórios ✦</span><span>Games e informática ✦</span><span>Eletrônicos ✦</span><span>Casa e utilidades ✦</span><span>Moda e acessórios ✦</span><span>Games e informática ✦</span><span>Eletrônicos ✦</span><span>Casa e utilidades ✦</span><span>Moda e acessórios ✦</span><span>Games e informática ✦</span><span>Eletrônicos ✦</span><span>Casa e utilidades ✦</span><span>Moda e acessórios ✦</span><span>Games e informática ✦</span></div></div>
+
+<main>
+  <section class="sec">
+    <div class="wrap">
+      <h2>Por que entrar no grupo?</h2>
+      <ul class="perks">
+        <li>
+          <div class="ico" aria-hidden="true">🔎</div>
+          <div><b>A gente garimpa por você</b><span>Você não perde tempo procurando: só abre o grupo e clica na oferta.</span></div>
+        </li>
+        <li>
+          <div class="ico" aria-hidden="true">🔥</div>
+          <div><b>Ofertas e achadinhos</b><span>Eletrônicos, casa, moda, games e muito mais, direto no seu WhatsApp.</span></div>
+        </li>
+        <li>
+          <div class="ico" aria-hidden="true">✅</div>
+          <div><b>Sem custo nenhum</b><span>Entrar é grátis, e você pode sair a qualquer momento.</span></div>
+        </li>
+      </ul>
+      <div class="cta2">
+        <p>A gente garimpa, você economiza.</p>
+        <a class="join" href="#" data-join>
+          <svg aria-hidden="true"><use href="#wa"/></svg>
+          Quero entrar no grupo
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Alguns links do grupo podem gerar comissão para o Garimou, sem custo extra para você.</p>
+    <p>Preços e disponibilidade podem mudar a qualquer momento.</p>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="join" href="#" data-join>
+    <svg aria-hidden="true"><use href="#wa"/></svg>
+    Entrar no grupo
+  </a>
+</div>
+
+<script>
+  // Troque pelo link real do seu grupo:
+  var GROUP_LINK = "https://chat.whatsapp.com/LNUowyXJ3tSJfwM03xVqbR";
+  document.querySelectorAll("[data-join]").forEach(function (a) {
+    a.href = GROUP_LINK;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  });
+
+  (function () {
+    var lis = document.querySelectorAll(".perks li");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.2 });
+      lis.forEach(function (li, i) { li.style.transitionDelay = (i * 120) + "ms"; io.observe(li); });
+    } else { lis.forEach(function (li) { li.classList.add("in"); }); }
+
+    var c = document.getElementById("coins");
+    if (!c || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var x = c.getContext("2d"), w, h, dpr = Math.min(devicePixelRatio || 1, 2), ps = [];
+    function size() { var r = c.parentNode.getBoundingClientRect(); w = r.width; h = r.height; c.width = w * dpr; c.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    function mk(init) { return { x: Math.random() * w, y: init ? Math.random() * h : -10, r: 2 + Math.random() * 4, v: 0.25 + Math.random() * 0.7, s: Math.random() * 6.28, a: 0.35 + Math.random() * 0.5 }; }
+    size(); for (var i = 0; i < 34; i++) ps.push(mk(true));
+    addEventListener("resize", size);
+    function tick(t) {
+      x.clearRect(0, 0, w, h);
+      ps.forEach(function (p, i) {
+        p.y += p.v; p.x += Math.sin(t / 900 + p.s) * 0.35;
+        if (p.y > h + 10) ps[i] = mk(false);
+        x.globalAlpha = p.a * (0.6 + 0.4 * Math.sin(t / 300 + p.s));
+        x.fillStyle = "#F5B82E";
+        x.beginPath(); x.moveTo(p.x, p.y - p.r); x.lineTo(p.x + p.r, p.y); x.lineTo(p.x, p.y + p.r); x.lineTo(p.x - p.r, p.y); x.closePath(); x.fill();
+      });
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>
