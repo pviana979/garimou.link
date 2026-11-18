@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Garimou: escolha sua loja e entre no canal de ofertas</title>
+<meta name="description" content="Escolha a loja e a categoria que você mais gosta e entre no canal gratuito do Garimou para receber ofertas e achadinhos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --river:#0E3B35; --river-deep:#092823; --gold:#F5B82E; --gold-deep:#C48A12; --cream:#FFF6DC;
+  --panel:#FFFBF0; --card:#FFFFFF; --ink:#1B2B28; --soft:#5B6B66; --line:#E6D9AE;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--panel:#0C2D29; --card:#123F39; --ink:#F3EBD0; --soft:#B9C7BF; --line:#1E4A43; color-scheme:dark;}
+}
+:root[data-theme="dark"]{--panel:#0C2D29; --card:#123F39; --ink:#F3EBD0; --soft:#B9C7BF; --line:#1E4A43; color-scheme:dark;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--river-deep);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.page{max-width:560px;margin:0 auto;background:var(--panel);min-height:100vh}
+
+/* topo */
+.hdr{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#14544B 0%,var(--river) 50%,var(--river-deep) 100%);color:var(--cream);text-align:center;padding:22px 22px 34px}
+.hdr>*:not(.nug){position:relative;z-index:1}
+.bear{width:112px;height:112px;display:block;margin:0 auto 4px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35));animation:bob 3.6s ease-in-out infinite}
+@keyframes bob{0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -8px;rotate:2deg}}
+.brand{font-family:"Bricolage Grotesque",Georgia,serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;color:var(--gold);margin:0 0 12px}
+.badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#CFEFA0;background:rgba(255,246,220,.1);border:1px solid rgba(255,246,220,.24);padding:7px 16px;border-radius:999px}
+h1{font-family:"Bricolage Grotesque",Georgia,serif;font-weight:800;font-size:clamp(1.9rem,8vw,2.5rem);line-height:1.08;letter-spacing:-.025em;margin:16px auto 10px;max-width:16ch;text-wrap:balance}
+.sub{margin:0 auto;max-width:34ch;color:#EADFBC;font-size:1.05rem}
+.nug{position:absolute;width:54px;pointer-events:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));animation:float 5s ease-in-out infinite}
+.nA{left:4%;top:96px;transform:rotate(-16deg)}
+.nB{right:5%;top:160px;width:42px;transform:rotate(24deg);animation-duration:6.2s;animation-delay:-2s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+
+/* borda recortada */
+.edge{height:16px;background:radial-gradient(circle at 14px 0,var(--river-deep) 13px,var(--panel) 14.5px) 0 0/28px 16px repeat-x}
+
+/* conteúdo */
+.body{padding:26px 18px 40px}
+.view{display:none}
+.view.on{display:block;animation:rise .45s ease both}
+.title{text-align:center;font-size:1.1rem;margin:0 0 18px;color:var(--ink)}
+.title b{font-weight:700}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--soft);font-weight:700;font-size:.95rem;text-decoration:none;margin:0 0 14px;padding:6px 2px}
+.back:hover{color:var(--ink)}
+.back:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--c,#7A4A12);color:#fff;font-weight:700;font-size:.98rem;text-decoration:none;padding:12px 18px;border-radius:999px;transition:transform .15s ease,filter .15s ease;white-space:nowrap}
+a.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+a.btn:active{transform:translateY(1px)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn.off{background:#9AA5A1;color:#fff;opacity:.85;cursor:default}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 12px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:0 8px 18px rgba(0,0,0,.07);animation:rise .55s ease both;transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(0,0,0,.14)}
+.ic{width:64px;height:64px;border-radius:20px;background:var(--bg,var(--c));display:grid;place-items:center;font-size:2rem;margin-bottom:4px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.14)}
+.card h3{margin:0;font-size:1.05rem;color:var(--c);line-height:1.2}
+.card p{margin:0 0 8px;font-size:.84rem;color:var(--soft);line-height:1.3;min-height:2.2em}
+.card .btn{width:100%}
+.card.loja{background:var(--bg);border-color:rgba(0,0,0,.14)}
+.card.loja h3{color:#2D3277;font-size:1.12rem}
+.card.loja p{color:#4A4520}
+.card.loja .ic{background:#2D3277;box-shadow:inset 0 -6px 0 rgba(0,0,0,.25)}
+.card.soon{border:2px dashed var(--line);background:transparent;box-shadow:none;justify-content:center}
+.card.soon:hover{transform:none;box-shadow:none}
+.card.soon .ic{background:var(--line);box-shadow:none}
+.card.soon h3{color:var(--soft)}
+@keyframes rise{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+@media (max-width:360px){.grid{gap:10px}.card{padding:16px 8px 14px}}
+
+footer{padding:0 22px 40px;text-align:center;color:var(--soft);font-size:.82rem}
+footer p{margin:0 0 6px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE08A"/><stop offset=".55" stop-color="#F5B82E"/><stop offset="1" stop-color="#B9780B"/>
+    </linearGradient>
+    <symbol id="nugget" viewBox="0 0 100 80">
+      <polygon points="8,46 22,16 52,6 84,18 96,48 76,72 38,76" fill="url(#g)"/>
+      <polygon points="22,16 52,6 46,34" fill="#FFF0B8" opacity=".75"/>
+      <polygon points="46,34 84,18 96,48 62,50" fill="#FFD25E" opacity=".6"/>
+      <polygon points="8,46 46,34 38,76" fill="#C48A12" opacity=".55"/>
+    </symbol>
+    <!-- Urso provisório. Para usar o seu mascote, troque o <svg class="bear"> por <img class="bear" src="urso.png" alt="Mascote do Garimou"> -->
+    <symbol id="urso" viewBox="0 0 120 120">
+      <circle cx="28" cy="30" r="17" fill="#7A4A22"/><circle cx="28" cy="30" r="8.5" fill="#D9A066"/>
+      <circle cx="92" cy="30" r="17" fill="#7A4A22"/><circle cx="92" cy="30" r="8.5" fill="#D9A066"/>
+      <circle cx="60" cy="66" r="44" fill="#8B5A2B"/>
+      <ellipse cx="60" cy="83" rx="21" ry="15" fill="#EBC99C"/>
+      <circle cx="34" cy="77" r="6.5" fill="#E4572E" opacity=".3"/><circle cx="86" cy="77" r="6.5" fill="#E4572E" opacity=".3"/>
+      <circle cx="42" cy="58" r="5.5" fill="#2B1A0E"/><circle cx="78" cy="58" r="5.5" fill="#2B1A0E"/>
+      <circle cx="43.8" cy="56" r="1.8" fill="#fff"/><circle cx="79.8" cy="56" r="1.8" fill="#fff"/>
+      <ellipse cx="60" cy="75" rx="7.5" ry="5.2" fill="#2B1A0E"/>
+      <path d="M60 80v5M51 88q9 8 18 0" stroke="#2B1A0E" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+  <header class="hdr">
+    <svg class="nug nA" viewBox="0 0 100 80" aria-hidden="true"><use href="#nugget"/></svg>
+    <svg class="nug nB" viewBox="0 0 100 80" aria-hidden="true"><use href="#nugget"/></svg>
+    <svg class="bear" viewBox="0 0 120 120" role="img" aria-label="Mascote do Garimou"><use href="#urso"/></svg>
+    <p class="brand">Garimou</p>
+    <span class="badge">100% grátis</span>
+    <h1>Receba as melhores ofertas no WhatsApp</h1>
+    <p class="sub">Escolha a loja, depois a categoria, e entre no canal. A gente garimpa, você economiza.</p>
+  </header>
+  <div class="edge" aria-hidden="true"></div>
+
+  <main class="body">
+    <!-- Passo 1: escolher a loja -->
+    <section class="view on" id="v-lojas">
+      <p class="title"><b>Escolha a sua loja</b></p>
+      <div class="grid" id="grid-lojas"></div>
+    </section>
+
+    <!-- Passo 2: escolher a categoria -->
+    <section class="view" id="v-cats">
+      <a class="back" href="#">← Trocar de loja</a>
+      <p class="title" id="cats-title"></p>
+      <div class="grid" id="grid-cats"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Alguns links dos canais podem gerar comissão para o Garimou, sem custo extra para você.</p>
+    <p>Preços e disponibilidade podem mudar a qualquer momento.</p>
+  </footer>
+</div>
+
+<script>
+  // ==========================================================================
+  //  EDITE AQUI
+  //  - Cada loja tem a sua lista de categorias.
+  //  - Em "link", cole o link do canal do WhatsApp daquela categoria
+  //    (o link do canal começa com https://whatsapp.com/channel/).
+  //  - Enquanto o "link" estiver vazio (""), o botão aparece como "Em breve".
+  //  - Para adicionar outra loja (Shopee, Amazon...), copie um bloco de loja
+  //    inteiro, cole abaixo do Mercado Livre e troque os dados.
+  // ==========================================================================
+  var LOJAS = [
+    {
+      id: "mercado-livre",
+      nome: "Mercado Livre",
+      icone: "🛒",
+      fundo: "#FFE600",
+      cor: "#2D3277",
+      categorias: [
+        { nome: "Casa e utilidades", desc: "Organização, decoração e utilidades", icone: "🏠", cor: "#B97A0B", link: "https://whatsapp.com/channel/0029VbE7fG33GJOt5e8LZ51a" },
+        { nome: "Tecnologia",        desc: "Eletrônicos, gadgets e acessórios",   icone: "💻", cor: "#7A3FD1", link: "https://whatsapp.com/channel/0029VbDzDRsEVccB0usTwq1b" },
+        { nome: "Cozinha",           desc: "Utensílios, eletroportáteis e mais",  icone: "🍳", cor: "#E4572E", link: "https://whatsapp.com/channel/0029VbECsr39MF8sRsDCjo04" },
+        { nome: "Fashion",           desc: "Roupas, calçados e acessórios",       icone: "👗", cor: "#C93A78", link: "https://whatsapp.com/channel/0029VbDdgWBC6Zvoph1ACF1i" }
+      ]
+    }
+  ];
+  // ==========================================================================
+
+  var vLojas = document.getElementById("v-lojas");
+  var vCats = document.getElementById("v-cats");
+  var gLojas = document.getElementById("grid-lojas");
+  var gCats = document.getElementById("grid-cats");
+  var catsTitle = document.getElementById("cats-title");
+
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt) e.textContent = txt;
+    return e;
+  }
+
+  // cartões das lojas
+  LOJAS.forEach(function (l, i) {
+    var card = el("article", "card loja");
+    card.style.setProperty("--c", l.cor);
+    card.style.setProperty("--bg", l.fundo);
+    card.style.animationDelay = (i * 90) + "ms";
+    var ic = el("div", "ic", l.icone); ic.setAttribute("aria-hidden", "true");
+    var h = el("h3", null, l.nome);
+    var p = el("p", null, "Ofertas e achadinhos");
+    var a = el("a", "btn", "Escolher");
+    a.href = "#" + l.id;
+    a.style.setProperty("--c", "#2D3277");
+    [ic, h, p, a].forEach(function (n) { card.appendChild(n); });
+    gLojas.appendChild(card);
+  });
+
+  // cartão "mais lojas em breve"
+  (function () {
+    var card = el("article", "card soon");
+    card.style.animationDelay = (LOJAS.length * 90) + "ms";
+    var ic = el("div", "ic", "✨"); ic.setAttribute("aria-hidden", "true");
+    card.appendChild(ic);
+    card.appendChild(el("h3", null, "Mais lojas em breve"));
+    card.appendChild(el("p", null, "Fique de olho, vem novidade"));
+    gLojas.appendChild(card);
+  })();
+
+  // categorias de uma loja
+  function mostrarCategorias(loja) {
+    gCats.textContent = "";
+    catsTitle.textContent = "";
+    var b = el("b", null, loja.nome + ": ");
+    catsTitle.appendChild(b);
+    catsTitle.appendChild(document.createTextNode("escolha a categoria"));
+    loja.categorias.forEach(function (c, i) {
+      var card = el("article", "card");
+      card.style.setProperty("--c", c.cor);
+      card.style.animationDelay = (i * 90) + "ms";
+      var ic = el("div", "ic", c.icone); ic.setAttribute("aria-hidden", "true");
+      var h = el("h3", null, c.nome);
+      var p = el("p", null, c.desc);
+      var a;
+      if (c.link) {
+        a = el("a", "btn", "Entrar no canal");
+        a.href = c.link; a.target = "_blank"; a.rel = "noopener noreferrer";
+      } else {
+        a = el("span", "btn off", "Em breve");
+      }
+      [ic, h, p, a].forEach(function (n) { card.appendChild(n); });
+      gCats.appendChild(card);
+    });
+  }
+
+  function rota() {
+    var id = location.hash.replace("#", "");
+    var loja = LOJAS.filter(function (l) { return l.id === id; })[0];
+    if (loja) {
+      mostrarCategorias(loja);
+      vLojas.classList.remove("on");
+      vCats.classList.add("on");
+    } else {
+      vCats.classList.remove("on");
+      vLojas.classList.add("on");
+    }
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", rota);
+  rota();
+</script>
+</body>
+</html>
